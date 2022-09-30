@@ -26,7 +26,21 @@ function addR() {
 
 // Add a column
 function addC() {
-    alert("Clicked Add Col"); // Replace this line with your code.
+    const grid = document.getElementById('grid');
+
+    //If grid is empty, create first row with column
+    if(numRows === 0 && numCols === 0)
+    {
+        addR();
+    }
+    else
+    {
+        for (let i = 0; i < numRows; i++) 
+        {
+            grid.rows[i].insertCell(numCols);
+        }
+        numCols++;
+    }
 }
 
 // Remove a row
