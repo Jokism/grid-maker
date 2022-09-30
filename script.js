@@ -45,13 +45,15 @@ function addC() {
 
 // Remove a row
 function removeR() {
-    if (numRows > 0) {
+    if (numRows > 0) 
+    {
         const grid = document.getElementById('grid');
         
         grid.deleteRow(numRows-1);
         numRows--;
         
-        if (numRows === 0) {
+        if (numRows === 0) 
+        {
             numCols = 0;
         }
     } 
@@ -59,18 +61,22 @@ function removeR() {
 
 // Remove a column
 function removeC() {
-    if (numCols > 0) {
+    if (numCols > 0) 
+    {
         const grid = document.getElementById('grid');
         
         // Remove column for each row
-        for (let i = 0; i < numRows; i++) {
+        for (let i = 0; i < numRows; i++) 
+        {
             grid.rows[i].deleteCell(numCols-1);
         }
         numCols--;
 
         // Remove remaining rows if there are no columns
-        if (numCols === 0) {
-            for (let i = 0; i < numRows; i++) {
+        if (numCols === 0) 
+        {
+            for (let i = 0; i < numRows; i++) 
+            {
                 removeR();
             }
             numRows = 0;
@@ -81,8 +87,32 @@ function removeC() {
 // Set global variable for selected color
 function selectColor(){
     colorSelected = document.getElementById("selectedColorId").value;
-    console.log(colorSelected);
 }
+
+// Event listener for click event to set background color of a table cell to colorSelected
+document.querySelector('#grid').addEventListener('click', event => {
+    const target_element = event.target;
+    const tag_name = target_element.tagName.toString().toLowerCase();
+    
+    if (tag_name === 'td') 
+    {
+        const element_style = target_element.style;
+        
+        // Remove background-color style
+        if (    !colorSelected 
+                || colorSelected === 'SELECT' 
+                || colorSelected.toLowerCase() === element_style.backgroundColor) 
+        {
+            target_element.removeAttribute('style');
+        }
+        // Set background-color style
+        else 
+        {
+            element_style.backgroundColor = colorSelected;
+        }
+
+    }
+});
 
 // Fill all uncolored cells
 function fillU(){
