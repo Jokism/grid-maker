@@ -116,7 +116,24 @@ document.querySelector('#grid').addEventListener('click', event => {
 
 // Fill all uncolored cells
 function fillU(){
-    alert("Clicked Fill All Uncolored"); // Replace this line with your code.
+    // If table is not empty
+    if (numRows > 0 && numCols > 0) 
+    {
+        const grid = document.getElementById('grid');
+        
+        for (let i = 0; i < numRows; i++) 
+        {
+            for (let j = 0; j < numCols; j++)
+            {
+                let cell_style = grid.rows[i].cells[j].style;
+                
+                if (!cell_style.backgroundColor) 
+                {
+                    cell_style.backgroundColor = colorSelected;
+                }
+            }
+        }
+    }
 }
 
 // Fill all cells
