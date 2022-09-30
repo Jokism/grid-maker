@@ -162,5 +162,16 @@ function fillAll(){
 
 // Clear all cells
 function clearAll(){
-    alert("Clicked Clear All"); // Replace this line with your code.
+    if (numRows > 0 && numCols > 0)
+    {
+        const grid = document.getElementById('grid');
+
+        for (let i = 0; i < numRows; i++)
+        {
+            for (let j = 0 ; j < numCols; j++)
+            {
+                grid.rows[i].cells[j].removeAttribute('style');
+            }
+        }
+    }
 }
