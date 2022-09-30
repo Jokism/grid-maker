@@ -138,7 +138,26 @@ function fillU(){
 
 // Fill all cells
 function fillAll(){
-    alert("Clicked Fill All"); // Replace this line with your code.
+    // If table is not empty
+    if (numRows > 0 && numCols > 0)
+    {
+        const grid = document.getElementById('grid');
+
+        for (let i = 0; i < numRows; i++) 
+        {
+            for (let j = 0; j < numCols; j++)
+            {
+                if (colorSelected)
+                {
+                    grid.rows[i].cells[j].style.backgroundColor = colorSelected;
+                }
+                else
+                {
+                    grid.rows[i].cells[j].removeAttribute('style');
+                }
+            }
+        }
+    }
 }
 
 // Clear all cells
