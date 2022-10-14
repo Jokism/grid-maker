@@ -10,4 +10,7 @@ Assignment 3 - Grid Maker.
 ## Group Members
 
 Name: Jerrod Mitchell
-Github: https://github.com/jokism/grid-maker/
+
+Repo: https://github.com/jokism/grid-maker/
+
+Github: https://github.com/jokism
